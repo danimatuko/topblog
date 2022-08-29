@@ -1,0 +1,19 @@
+{
+  "name": "tstodo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "tsc -w",
+    "styles": "npx tailwindcss -i ./src/style.css -o ./public/style.css --watch",
+    "dev": "concurrently --kill-others \"npm start\" \"npm run styles\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^7.3.0",
+    "tailwindcss": "^3.1.8",
+    "typescript": "^4.8.2"
+  }
+}
