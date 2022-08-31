@@ -8,48 +8,21 @@ export class Blog {
     createElement() {
         const div = document.createElement('div');
         div.innerHTML = `
-     <div class="blog bg-white rounded-md py-6 px-10">
+     <div class="blog bg-white rounded-md py-6 mb-5 px-10">
         <h2 class="title text-3xl mb-2 font-semibold text-primary">
-          Lorem, ipsum dolor
+        ${this.title}
         </h2>
         <small class="author text-sm text-slate-500 font-bold"
-          >Jhon Doe</small
-        >
+          >${this.author}
+          </small>
         <p class="my-3">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore
-          unde, vero beatae iusto ad repellendus a autem enim, dolorum aut
-          ullam aspernatur, commodi quos perferendis dolores corrupti
-          reprehenderit? Exercitationem consectetur dolorem, molestiae
-          assumenda placeat atque necessitatibus dolore iure culpa rem?
+          ${this.body}
         </p>
-
-        <button class="bg-primary py-3 px-5 text-white font-semibold">
-          READ MORE
-        </button>
+        <a href='/${this.id}' class="bg-primary py-3 px-5 text-white font-semibold"/>
+          READ MORE  
+        </a>
     </div>`;
         return div;
-    }
-    template() {
-        ` <div class="blog bg-white rounded-md py-6 px-10">
-          <h2 class="title text-3xl mb-2 font-semibold text-primary">
-            Lorem, ipsum dolor
-          </h2>
-          <small class="author text-sm text-slate-500 font-bold"
-            >Jhon Doe</small
-          >
-          <p class="my-3">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore
-            unde, vero beatae iusto ad repellendus a autem enim, dolorum aut
-            ullam aspernatur, commodi quos perferendis dolores corrupti
-            reprehenderit? Exercitationem consectetur dolorem, molestiae
-            assumenda placeat atque necessitatibus dolore iure culpa rem?
-          </p>
-
-          <button class="bg-primary py-3 px-5 text-white font-semibold">
-            READ MORE
-          </button>
-        </div>`;
-        return new DOMParser().parseFromString(this.title, 'text/xml');
     }
     render() {
         var _a;

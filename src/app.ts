@@ -2,13 +2,39 @@
 import { Blog } from './classes/Blog.js';
 import { BlogList } from './classes/BlogList.js';
 
-class Main {
+class App {
   static init() {
+    this.router();
     //router
-    const hodi = new Blog('Hodi', "I'm running away", 'blah blah blah....');
+    const bloglist = new BlogList('../../public/data.json');
+    bloglist
+      .getBlogs()
+      .then((blogs) => {
+        for (let blog of blogs) {
+          blog = new Blog(blog.author, blog.title, blog.body);
+          // console.log(blog);
+          blog.render();
+        }
+      })
+      .catch((err) => console.log(err));
+  }
 
-    hodi.render();
+  static getPathname() {
+    return location.pathname.split('/').slice(-1).toString();
+  }
+
+  static router() {
+    switch (this.getPathname()) {
+      case 'home.html':
+        console.log('home');
+        break
+      case 'blogs.html':
+        console.log('blogs');
+        break
+      default:
+        return location.pathname;
+    }
   }
 }
 
-Main.init();
+App.init();

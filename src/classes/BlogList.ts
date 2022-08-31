@@ -1,11 +1,26 @@
+import { Iblog } from './../interfaces/Iblog';
 import { Blog } from './Blog';
 
-// export class BlogList {
-//   private blogs: Blog[];
-// }
-  // static fetchBlogs() {
-  //   fetch('../../public/data.json')
-  //     .then((res) => res.json())
-  //     .then((blogs) => console.log(blogs))
-  //     .catch((err) => console.log(err));
-  // }
+export class BlogList {
+  private blogs: Promise<any>;
+  private endpoint: string;
+
+  constructor(endpoint: string) {
+    this.endpoint = endpoint;
+    this.blogs = this.fetchBlogs(this.endpoint);
+  }
+
+  fetchBlogs = function (endpoint: string) {
+    return fetch(endpoint)
+      .then((res) => res.json())
+      .then((res) => res)
+      .catch((err) => err);
+  };
+
+  getBlogs(): Promise<any> {
+    return this.blogs;
+  }
+}
+
+
+
